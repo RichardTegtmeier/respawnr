@@ -1,0 +1,17 @@
+Package: respawnr
+Type: Package
+Title: Fast Navigation Markers for R Scripts and R Markdown
+Version: 0.1.0
+Authors@R: 
+    person("Your", "Name", email = "you@email.com", role = c("aut", "cre"))
+Description: 
+    Lightweight navigation markers for long R scripts and R Markdown
+    documents. Users can place special marker comments and jump between
+    them using RStudio addins and keyboard shortcuts.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    rstudioapi (>= 0.15),
+    stringr
+RoxygenNote: 7.3.2
