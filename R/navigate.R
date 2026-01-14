@@ -7,18 +7,16 @@ jump_to_marker <- function(name, offset = 5) {
     stop("Marker not found: ", name)
   }
 
-  ctx <- rstudioapi::getActiveDocumentContext()
-
+  # Scroll above marker
   rstudioapi::setCursorPosition(
-    documentId = ctx$id,
     position = rstudioapi::document_position(
       row = max(1, hit$line - offset),
       column = 1
     )
   )
 
+  # Jump to marker
   rstudioapi::setCursorPosition(
-    documentId = ctx$id,
     position = rstudioapi::document_position(
       row = hit$line,
       column = 1
@@ -28,7 +26,6 @@ jump_to_marker <- function(name, offset = 5) {
 
 jump_next_marker <- function() {
   ctx <- rstudioapi::getActiveDocumentContext()
-
   cursor <- ctx$selection[[1]]$range$start[["row"]] + 1
   markers <- find_markers()
 
@@ -36,7 +33,6 @@ jump_next_marker <- function() {
   if (nrow(next_hit) == 0) return(invisible())
 
   rstudioapi::setCursorPosition(
-    documentId = ctx$id,
     position = rstudioapi::document_position(
       row = next_hit$line[1],
       column = 1
@@ -46,7 +42,6 @@ jump_next_marker <- function() {
 
 jump_prev_marker <- function() {
   ctx <- rstudioapi::getActiveDocumentContext()
-
   cursor <- ctx$selection[[1]]$range$start[["row"]] + 1
   markers <- find_markers()
 
@@ -54,7 +49,6 @@ jump_prev_marker <- function() {
   if (nrow(prev_hit) == 0) return(invisible())
 
   rstudioapi::setCursorPosition(
-    documentId = ctx$id,
     position = rstudioapi::document_position(
       row = tail(prev_hit$line, 1),
       column = 1
