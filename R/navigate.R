@@ -65,7 +65,7 @@ jump_prev_marker <- function() {
 }
 
 #' @export
-jump_to_marker_ui <- function() {
+jump_to_marker <- function() {
   markers <- find_markers()
   
   if (nrow(markers) == 0) {
