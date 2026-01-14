@@ -1,6 +1,5 @@
 jump_to_marker <- function(name, offset = 5) {
   name <- trimws(name)
-
   markers <- find_markers()
   hit <- markers[markers$name == name, ]
 
@@ -12,20 +11,25 @@ jump_to_marker <- function(name, offset = 5) {
 
   rstudioapi::setCursorPosition(
     documentId = ctx$id,
-    row = max(1, hit$line - offset),
-    column = 1
+    position = rstudioapi::document_position(
+      row = max(1, hit$line - offset),
+      column = 1
+    )
   )
 
   rstudioapi::setCursorPosition(
     documentId = ctx$id,
-    row = hit$line,
-    column = 1
+    position = rstudioapi::document_position(
+      row = hit$line,
+      column = 1
+    )
   )
 }
 
 jump_next_marker <- function() {
   ctx <- rstudioapi::getActiveDocumentContext()
-  cursor <- ctx$selection[[1]]$range$start["row"] + 1
+
+  cursor <- ctx$selection[[1]]$range$start[["row"]] + 1
   markers <- find_markers()
 
   next_hit <- markers[markers$line > cursor, ]
@@ -33,14 +37,17 @@ jump_next_marker <- function() {
 
   rstudioapi::setCursorPosition(
     documentId = ctx$id,
-    row = next_hit$line[1],
-    column = 1
+    position = rstudioapi::document_position(
+      row = next_hit$line[1],
+      column = 1
+    )
   )
 }
 
 jump_prev_marker <- function() {
   ctx <- rstudioapi::getActiveDocumentContext()
-  cursor <- ctx$selection[[1]]$range$start["row"] + 1
+
+  cursor <- ctx$selection[[1]]$range$start[["row"]] + 1
   markers <- find_markers()
 
   prev_hit <- markers[markers$line < cursor, ]
@@ -48,7 +55,9 @@ jump_prev_marker <- function() {
 
   rstudioapi::setCursorPosition(
     documentId = ctx$id,
-    row = tail(prev_hit$line, 1),
-    column = 1
+    position = rstudioapi::document_position(
+      row = tail(prev_hit$line, 1),
+      column = 1
+    )
   )
 }
