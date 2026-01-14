@@ -1,0 +1,14 @@
+Name: Jump to Marker (Picker)
+Description: Select and jump to a respawn marker
+Binding: pick_marker
+Interactive: true
+
+Name: Jump to Next Marker
+Description: Jump to next respawn marker
+Binding: jump_next_marker
+Interactive: true
+
+Name: Jump to Previous Marker
+Description: Jump to previous respawn marker
+Binding: jump_prev_marker
+Interactive: true
