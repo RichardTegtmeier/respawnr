@@ -1,1 +1,4 @@
-
+^\.git$
+^\.github$
+^\.Rproj\.user$
+^respawnr\.Rproj$
