@@ -6,12 +6,13 @@ pick_marker <- function() {
     return(invisible())
   }
 
-  choice <- rstudioapi::selectList(
+  choice <- utils::select.list(
     choices = markers$name,
-    title = "Jump to respawn marker"
+    title = "Jump to respawn marker",
+    graphics = FALSE
   )
 
-  if (!is.null(choice)) {
+  if (nzchar(choice)) {
     jump_to_marker(choice)
   }
 }
