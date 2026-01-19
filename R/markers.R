@@ -7,30 +7,41 @@ find_markers <- function() {
   }
 
   ctx <- rstudioapi::getActiveDocumentContext()
-
-  # Hardening: require an active editor document
-  if (is.null(ctx) || is.null(ctx$contents) || length(ctx$contents) == 0) {
-    rstudioapi::showDialog(
-      "respawnr",
-      "No active editor document detected. Click inside a file with @respawn markers."
-    )
-    return(data.frame(name = character(), line = integer()))
-  }
-
   lines <- ctx$contents
 
-  # Robust detection: find @respawn anywhere in line
-  idx <- grep("@respawn", lines, fixed = TRUE)
+  if (length(lines) == 0) {
+    return(data.frame(name = character(), line = integer()))
+  }
 
-  if (length(idx) == 0) {
+  in_chunk <- FALSE
+  idx <- integer()
+
+  for (i in seq_along(lines)) {
+    line <- lines[i]
+
+    # Detect start/end of R code chunks
+    if (grepl("^```\\s*\\{r", line)) {
+      in_chunk <- TRUE
+      next
+    }
+    if (grepl("^```\\s*$", line)) {
+      in_chunk <- FALSE
+      next
+    }
+
+    if (in_chunk && grepl("@respawn", line, fixed = TRUE)) {
+      idx <- c(idx, i)
+    }
+  }
+
+  if (!length(idx)) {
     rstudioapi::showDialog(
       "respawnr",
-      "No @respawn markers found in the active document."
+      "No @respawn markers found in R code chunks.\nMarkers must be inside ```{r} chunks."
     )
     return(data.frame(name = character(), line = integer()))
   }
 
-  # Extract marker names safely
   names <- sub(".*@respawn\\s*", "", lines[idx])
   names <- trimws(names)
 
