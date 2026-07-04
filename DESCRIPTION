@@ -1,17 +1,19 @@
 Package: respawnr
-Type: Package
-Title: Fast Navigation Markers for R Scripts and R Markdown
+Title: RStudio Marker Jumps for Long Scripts
 Version: 0.1.0
-Authors@R: 
-    person("Your", "Name", email = "you@email.com", role = c("aut", "cre"))
-Description: 
-    Lightweight navigation markers for long R scripts and R Markdown
-    documents. Users can place special marker comments and jump between
-    them using RStudio addins and keyboard shortcuts.
+Authors@R:
+    person("Richard", "Tegtmeier", email = "richard@example.com", role = c("aut", "cre"))
+Author: Richard Tegtmeier [aut, cre]
+Maintainer: Richard Tegtmeier <richard@example.com>
+Description: Provides RStudio addins for placing lightweight marker comments in
+    long scripts and jumping back to them with user-assigned keyboard shortcuts.
 License: MIT + file LICENSE
+URL: https://github.com/RichardTegtmeier/respawnr
+BugReports: https://github.com/RichardTegtmeier/respawnr/issues
 Encoding: UTF-8
-LazyData: true
-Imports:
-    rstudioapi (>= 0.15),
-    stringr
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Imports:
+    miniUI,
+    rstudioapi,
+    shiny

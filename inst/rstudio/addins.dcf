@@ -1,14 +1,29 @@
-Name: Jump to Marker (Picker)
-Description: Select and jump to a respawn marker
-Binding: pick_marker
+Name: Insert Respawn Marker
+Description: Insert a respawn marker comment at the current cursor position.
+Binding: insert_respawn
+Interactive: false
+
+Name: Jump to Respawn Marker
+Description: Jump to a named respawn marker in the active RStudio document.
+Binding: jump_respawn
 Interactive: true
 
-Name: Jump to Next Marker
-Description: Jump to next respawn marker
-Binding: jump_next_marker
-Interactive: true
+Name: Next Respawn Marker
+Description: Jump to the next respawn marker in the active RStudio document.
+Binding: next_respawn
+Interactive: false
 
-Name: Jump to Previous Marker
-Description: Jump to previous respawn marker
-Binding: jump_prev_marker
-Interactive: true
+Name: Previous Respawn Marker
+Description: Jump to the previous respawn marker in the active RStudio document.
+Binding: previous_respawn
+Interactive: false
+
+Name: Last Selected Respawn
+Description: Jump to the last respawn marker selected from the dropdown.
+Binding: last_selected_respawn
+Interactive: false
+
+Name: List Respawn Markers
+Description: Print respawn markers found in the active RStudio document.
+Binding: list_respawns
+Interactive: false
