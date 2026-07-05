@@ -32,7 +32,23 @@ After installing the package, RStudio will show these addins:
 - **List Respawn Markers**: prints markers and line numbers in the console.
 
 Assign hotkeys in RStudio with **Tools > Modify Keyboard Shortcuts**, then search
-for "Respawn".
+for "Respawn". All addin names and exported navigation functions include
+`respawn`, so they should be easy to find on macOS, Windows, and Linux.
+
+Suggested shortcuts:
+
+| Addin | macOS | Windows/Linux |
+| --- | --- | --- |
+| Insert Respawn Marker | `Cmd+1` | `Ctrl+1` |
+| Jump to Respawn Marker | `Cmd+2` | `Ctrl+2` |
+| List Respawn Markers | `Cmd+3` | `Ctrl+3` |
+| Next Respawn Marker | `Cmd+4` | `Ctrl+4` |
+| Previous Respawn Marker | `Cmd+5` | `Ctrl+5` |
+| Last Selected Respawn | `Cmd+6` | `Ctrl+6` |
+
+Example shortcut setup:
+
+![RStudio keyboard shortcuts showing respawnr addins](man/figures/respawnr-shortcuts.png)
 
 ## Install locally
 
