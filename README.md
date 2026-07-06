@@ -69,4 +69,6 @@ library(respawnr)
 
 ## Tutorial
 
-[![respawnr Demo](man/figures/respawnr-demo.gif)](./respawnr%20tutorial.mp4)
+🎥 **Video Tutorial**
+
+[▶ Watch the respawnr tutorial](respawnr%20tutorial.mp4)
