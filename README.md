@@ -69,8 +69,4 @@ library(respawnr)
 
 ## Tutorial
 
-A short demonstration of creating respawn markers, assigning keyboard shortcuts, and navigating long R scripts.
-
 [![respawnr Demo](man/figures/respawnr-demo.gif)](./respawnr%20tutorial.mp4)
-
-*Click the video to watch the full tutorial.*
