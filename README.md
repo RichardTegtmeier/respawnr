@@ -1,14 +1,13 @@
 # respawnr
 
-`respawnr` is a small RStudio addin package for long scripts. Drop marker
-comments where you regularly need to return, bind the addins to keyboard
-shortcuts, and jump without scrolling.
+`respawnr` is a helpful RStudio addin package to navigate long R scripts with functions to automatically toggle through marked lines in a file. You can easily drop commented markers where you need to return using custom hotkeys set by the user. These keyboard shortcuts allow you to quickly jump across the file without scrolling.
 
 ## Marker format
 
 Use either style:
 
 ```r
+#This is the syntax for the 'Insert Respawn Marker' function
 # respawnr: imports
 library(dplyr)
 
@@ -57,13 +56,7 @@ From GitHub:
 ```r
 install.packages("remotes")
 remotes::install_github("RichardTegtmeier/respawnr")
-```
-
-From a local checkout:
-
-```r
-install.packages("remotes")
-remotes::install_local("respawnr")
+library(respawnr)
 ```
 
 For active development:
@@ -71,12 +64,5 @@ For active development:
 ```r
 install.packages("devtools")
 devtools::load_all("respawnr")
-```
-
-## Customize marker syntax
-
-Advanced users can override the marker regex:
-
-```r
-options(respawnr.marker_pattern = "^\\s*#\\s*JUMP\\s*:\\s*(.+?)\\s*$")
+library(respawnr)
 ```
